@@ -25,13 +25,25 @@ public class SubstituicaoTributaria extends AppCompatActivity {
                 EditText ufDestino = (EditText) findViewById(R.id.uf_destino);
                 String destino = ufDestino.getText().toString();
                 EditText valorProdutos = (EditText) findViewById(R.id.valor_produto);
-                double produtos = Double.valueOf(valorProdutos.getText().toString());
+                String valorProduto = valorProdutos.getText().toString();
+                double produtos;
+                if (valorProduto == null || valorProduto == "") {
+                    produtos = -1;
+                } else produtos = Double.valueOf(valorProduto);
                 EditText freteSeguro = (EditText) findViewById(R.id.frete_seguro);
-                double seguro = Double.valueOf(freteSeguro.getText().toString());
+                String valorFrete = freteSeguro.getText().toString();
+                double seguro;
+                if (valorFrete == null || valorFrete == "") {
+                    seguro = -1;
+                } else seguro = Double.valueOf(valorFrete);
                 EditText despesas = (EditText) findViewById(R.id.despesas_extra);
-                double extra = Double.valueOf(despesas.getText().toString());
+                String valorExtra = despesas.getText().toString();
+                double extra;
+                if (valorExtra == null || valorExtra == "") {
+                    extra = -1;
+                } else extra = Double.valueOf(valorExtra);
 
-                if (origem == null || destino == null || produtos <= 0 || seguro <= 0 || extra <= 0) {
+                if (origem == "" || destino == "" || produtos < 0 || seguro < 0 || extra < 0) {
                     resultado.setText("Algum campo esta faltando");
                 } else {
                     origem = origem.toUpperCase();
@@ -58,7 +70,8 @@ public class SubstituicaoTributaria extends AppCompatActivity {
                     }
                 }
             }
-        });}
+        });
+    }
 
 
     protected int aliquotaPorUf(String uf) {
