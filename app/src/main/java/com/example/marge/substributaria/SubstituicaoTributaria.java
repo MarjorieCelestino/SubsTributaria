@@ -1,5 +1,6 @@
 package com.example.marge.substributaria;
 
+import android.icu.text.DecimalFormat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -30,42 +31,39 @@ public class SubstituicaoTributaria extends AppCompatActivity {
                 EditText despesas = (EditText) findViewById(R.id.despesas_extra);
                 double extra = Double.valueOf(despesas.getText().toString());
 
-                if(origem == null || destino == null || produtos == 0 || seguro == 0 || despesas == 0){
+                if (origem == null || destino == null || produtos <= 0 || seguro <= 0 || extra <= 0) {
                     resultado.setText("Algum campo esta faltando");
-                }
-                else{
+                } else {
                     origem = origem.toUpperCase();
                     destino = destino.toUpperCase();
 
-                    if(aliquotaPorUf(origem)==0 || aliquotaPorUf(destino)==0){
+                    if (aliquotaPorUf(origem) == 0 || aliquotaPorUf(destino) == 0) {
                         resultado.setText("Origem ou Destino não é uma UF");
-                    }
-                    else{
+                    } else {
                         double soma = produtos + seguro + extra;
                         double aliquota;
-                        if(origem =! destino){
+                        if (origem != destino) {
                             aliquota = aliquotaPorUf(origem);
-                        }
-                        else{
+                        } else {
                             aliquota = 17;
                         }
-                        aliquota = aliquota/100;
+                        aliquota = aliquota / 100;
 
-                        double MVA = (1+0.35) * (1-0.17) / (1-aliquota);
+                        double MVA = (1 + 0.35) * (1 - 0.17) / (1 - aliquota);
                         double BC_TC = soma * MVA;
 
                         double ICMS_ST = BC_TC * aliquota;
-                        resultado.setText("Total: " + ICMS_ST);
+                        String ICMS = String.format("%.2f", ICMS_ST);
+                        resultado.setText("Total: R$" + ICMS);
                     }
                 }
             }
-        });
+        });}
 
-    }
 
-    protected int aliquotaPorUf(String uf){
+    protected int aliquotaPorUf(String uf) {
         int aliquota = 0;
-        switch (uf){
+        switch (uf) {
             case "AC":
                 aliquota = 12;
                 break;
@@ -150,5 +148,6 @@ public class SubstituicaoTributaria extends AppCompatActivity {
             default:
                 aliquota = 0;
         }
+        return aliquota;
     }
 }
