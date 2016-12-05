@@ -58,7 +58,7 @@
         android:layout_marginRight="7dp"
         android:layout_marginTop="10dp"
         android:hint="Valor do produto: 00.00"
-        android:inputType="text"
+        android:inputType="number"
         android:textSize="15sp" />
 
 
@@ -70,7 +70,7 @@
         android:layout_marginRight="7dp"
         android:layout_marginTop="10dp"
         android:hint="Valor frete + seguro: 00.00"
-        android:inputType="text"
+        android:inputType="number"
         android:textSize="15sp" />
 
 
@@ -82,7 +82,7 @@
         android:layout_marginRight="7dp"
         android:layout_marginTop="10dp"
         android:hint="Despesas extra: 00.00"
-        android:inputType="text"
+        android:inputType="number"
         android:textSize="15sp" />
 
     <TextView
