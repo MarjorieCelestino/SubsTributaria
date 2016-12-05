@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_substituicao_tributaria"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.marge.substributaria.SubstituicaoTributaria">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:text="Preencha os campos abaixo para calcular a Substituição Tributária:"
+        android:textSize="15dp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_margin="5dp"
+        android:background="@android:color/holo_blue_dark" />
+
+    <EditText
+        android:id="@+id/uf_origem"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:hint="UF Origem"
+        android:inputType="text"
+        android:padding="20dp" />
+
+    <EditText
+        android:id="@+id/uf_destino"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:hint="UF Destino"
+        android:inputType="text"
+        android:padding="20dp" />
+
+    <EditText
+        android:id="@+id/valor_produto"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:hint="Valor Produto: 00,00"
+        android:inputType="numberDecimal"
+        android:padding="20dp" />
+
+    <EditText
+        android:id="@+id/frete_seguro"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:hint="Frete + Seguro: 00,00"
+        android:inputType="numberDecimal"
+        android:padding="20dp" />
+
+    <EditText
+        android:id="@+id/despesas_extra"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:hint="Despesas acessórias: 00,00"
+        android:inputType="numberDecimal"
+        android:padding="20dp" />
+
+    <TextView
+        android:id="@+id/resultado"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:textAlignment="center"
+        android:textSize="15dp" />
+
+    <Button
+        android:id="@+id/calcular"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="#3F51B5"
+        android:padding="10dp"
+        android:text="CALCULAR"
+        android:textSize="35px" />
+</LinearLayout>
